@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/wbyoung/jsi-gamelib/issues"
   },
-  "homepage": "https://github.com/wbyoung/jsi-gamelib"
+  "homepage": "https://github.com/wbyoung/jsi-gamelib",
+  "dependencies": {
+    "jasmine": "^2.3.0",
+    "lodash": "^3.7.0"
+  }
 }
