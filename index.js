@@ -9,10 +9,17 @@ var Map = function(layout) {
   _.forEach(layout, function(properties, name) {
     var room = new Room(name, properties);
     if (properties.entrance !== undefined) {
+      if (this.entrance !== null) {
+        throw new Error('Maps must have exactly one entrance');
+      }
       this.entrance = room;
     }
     this.rooms[name] = room;
   }.bind(this));
+
+  if (this.entrance === null) {
+    throw new Error('Maps must have exactly one entrance');
+  }
 };
 Map.prototype = {
   draw: function() {

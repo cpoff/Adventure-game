@@ -45,3 +45,20 @@ describe('draw a map with one room', function() {
       '+-------+');
   });
 });
+
+describe('maps must have one entrance', function() {
+  it('blows up if there are none', function() {
+    expect(function() {
+      new Map({"A": {}});
+    }).toThrowError('Maps must have exactly one entrance');
+  });
+
+  it('blows up if there are two', function() {
+    expect(function() {
+      new Map({
+        'A': {'entrance': 'north'},
+        'B': {'entrance': 'north'}
+      });
+    }).toThrowError('Maps must have exactly one entrance');
+  });
+});
