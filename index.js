@@ -20,6 +20,14 @@ var Map = function(layout) {
   if (this.entrance === null) {
     throw new Error('Maps must have exactly one entrance');
   }
+
+  _.forEach(this.rooms, function(room) {
+    ['north', 'east', 'south', 'west'].forEach(function(direction) {
+      if (room[direction]) {
+        room[direction] = this.rooms[room[direction]];
+      }
+    }.bind(this));
+  }.bind(this));
 };
 Map.prototype = {
   draw: function() {

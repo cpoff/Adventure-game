@@ -62,3 +62,14 @@ describe('maps must have one entrance', function() {
     }).toThrowError('Maps must have exactly one entrance');
   });
 });
+
+describe('rooms have references to their neighbors', function() {
+  it('works for a two-room map', function() {
+    var map = new Map({
+      'A': {'entrance': 'south', 'west': 'B'},
+      'B': {}
+    });
+
+    expect(map.rooms.A.west).toBe(map.rooms.B);
+  });
+});
