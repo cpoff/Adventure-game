@@ -30,4 +30,42 @@ describe('rooms have references to their neighbors', function() {
 
     expect(map.rooms.A.west).toBe(map.rooms.B);
   });
+
+  it('applies bidirectionality', function() {
+    var map = new Map({
+      'A': {'entrance': 'south', 'west': 'B'},
+      'B': {}
+    });
+
+    expect(map.rooms.B.east).toBe(map.rooms.A);
+  });
+});
+
+describe('set locations on rooms', function() {
+  it('sets the entrance to 0,0', function() {
+    var map = new Map({ 'A': {'entrance': 'south'}});
+
+    expect(map.rooms.A.location).toEqual({x: 0, y: 0});
+  });
+
+  it('sets other rooms relative to the entrance', function() {
+    var map = new Map({
+      'A': {
+        'entrance': 'south',
+        'north': 'B',
+        'east': 'C',
+        'south': 'D',
+        'west': 'E',
+      },
+      'B': {},
+      'C': {},
+      'D': {},
+      'E': {},
+    });
+
+    expect(map.rooms.B.location).toEqual({x: 0, y: 1});
+    expect(map.rooms.C.location).toEqual({x: 1, y: 0});
+    expect(map.rooms.D.location).toEqual({x: 0, y: -1});
+    expect(map.rooms.E.location).toEqual({x: -1, y: 0});
+  });
 });

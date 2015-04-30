@@ -3,6 +3,13 @@
 
 var _ = require('lodash');
 
+var opposites = {
+  'north': 'south',
+  'east': 'west',
+  'south': 'north',
+  'west': 'east'
+};
+
 var Map = function(layout) {
   this.rooms = {};
   this.entrance = null;
@@ -21,13 +28,44 @@ var Map = function(layout) {
     throw new Error('Maps must have exactly one entrance');
   }
 
+  this.entrance.location = {x: 0, y: 0};
+
   _.forEach(this.rooms, function(room) {
     ['north', 'east', 'south', 'west'].forEach(function(direction) {
-      if (room[direction]) {
+      if (typeof room[direction] === 'string') {
         room[direction] = this.rooms[room[direction]];
+        // enforce bidirectionality: the room to the west
+        // of my east must be me
+        room[direction][opposites[direction]] = room;
       }
     }.bind(this));
   }.bind(this));
+
+  var findLocation = function(room) {
+    if (typeof room.location === 'object') {
+      return;
+    }
+
+    if (room.north && room.north.location) {
+      room.location = _.merge({}, room.north.location);
+      room.location.y -= 1;
+    } else if (room.east && room.east.location) {
+      room.location = _.merge({}, room.east.location);
+      room.location.x -= 1;
+    } else if (room.south && room.south.location) {
+      room.location = _.merge({}, room.south.location);
+      room.location.y += 1;
+    } else if (room.west && room.west.location) {
+      room.location = _.merge({}, room.west.location);
+      room.location.x += 1;
+    }
+  };
+
+  while (_.any(this.rooms, function(room) {
+    return room.location === undefined;
+  })) {
+    _.forEach(this.rooms, findLocation);
+  }
 };
 Map.prototype = {
   draw: function() {
