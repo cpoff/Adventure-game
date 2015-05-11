@@ -1,4 +1,10 @@
 
+
+// var dictionary {A:0, B:1, C:2, D:3, E:4, F:5, G:6, H:7, I:8, J:9, K:10}
+// No need for loops if using dict.
+
+// if currentRoom = A
+
 console.log(require('jsi-gamelib').map(require(process.argv[2])));
 var readline = require('readline');
 var rl = readline.createInterface({
@@ -8,7 +14,7 @@ var rl = readline.createInterface({
 
 var roomA = function(){
 	console.log("You are now in Room A.");
-	rl.question("There are two doors through which you can pass. Choose the capitalized letter (D or B) of the room you'd like to travel to next.", function(go) {
+	rl.question("There are two doors through which you can pass. Choose the capitalized letter (D or B) of the room you'd like to travel to next. D looks like a good option.", function(go) {
 
 		if (go==="D") {
     		roomD();
@@ -22,7 +28,7 @@ var roomA = function(){
 
 var roomB = function(){
 	console.log("You are now in Room B.");
-	rl.question("There are three doors through which you can pass. Choose the capitalized letter (A, E, C) of the room you'd like to travel to next.", function(go) {
+	rl.question("There are three doors . Choose the capitalized letter (A, E, C). If I were you, I'd go back the way I came in.", function(go) {
 
 		if (go==="A") {
     		roomA();
@@ -38,7 +44,7 @@ var roomB = function(){
 
 var roomD = function(){
 	console.log("You are now in Room D.");
-	rl.question("There are two doors through which you can pass. Choose the capitalized letter (G or A) of the room you'd like to travel to next.", function(go) {
+	rl.question("There are two doors through which you can pass. Choose the capitalized letter (G or A) of the room you'd like to travel to next. G looks like a good option.", function(go) {
 
 		if (go==="A") {
     		roomA();
@@ -52,7 +58,7 @@ var roomD = function(){
 
 var roomC = function(){
 	console.log("You are now in Room C.");
-	rl.question("There is only one door through which you can pass. Choose the capitalized letter (B) of the room you'd like to travel to next.", function(go) {
+	rl.question("This place sucks. Let's go back the way we came by choosing 'B'.", function(go) {
 
 		if (go==="B") {
     		roomB();
@@ -64,7 +70,7 @@ var roomC = function(){
 
 var roomF = function(){
 	console.log("You are now in Room F.");
-	rl.question("There is only one door through which you can pass. Choose the capitalized letter (E) of the room you'd like to travel to next.", function(go) {
+	rl.question("Someone is smoking weed in here and won't share. You need to backtrack. Enter 'E' and we'll see if they have any Doritos in that previous room.", function(go) {
 
 		if (go==="E") {
     		roomE();
@@ -76,7 +82,7 @@ var roomF = function(){
 
 var roomE = function(){
 	console.log("You are now in Room E.");
-	rl.question("There are two doors through which you can pass. Choose the capitalized letter (F, B) of the room you'd like to travel to next.", function(go) {
+	rl.question("There are two doors. Choose the capitalized letter (F, B) of the room you'd like to travel to next. 'B' looks like a good choice.", function(go) {
 
 		if (go==="F") {
     		roomF();
@@ -90,7 +96,7 @@ var roomE = function(){
 
 var roomG = function(){
 	console.log("You are now in Room G.");
-	rl.question("There are two doors through which you can pass. Choose the capitalized letter (H, D) of the room you'd like to travel to next.", function(go) {
+	rl.question("Now you're rolling. Choose the capitalized letter (H, D) of the room you'd like to travel to next. H looks like a good option.", function(go) {
 
 		if (go==="H") {
     		roomH();
@@ -104,7 +110,7 @@ var roomG = function(){
 
 var roomH = function(){
 	console.log("You are now in Room H, in the top left corner.");
-	rl.question("There are two doors through which you can pass. Choose the capitalized letter (G, I) of the room you'd like to travel to next.", function(go) {
+	rl.question("There are two doors through which you can pass. Choose the capitalized letter (G, I) of the room you'd like to travel to next. You don't want to backtrack, so 'I' looks like a good option.", function(go) {
 
 		if (go==="G") {
     		roomG();
@@ -118,7 +124,7 @@ var roomH = function(){
 
 var roomI = function(){
 	console.log("You are now in Room I.");
-	rl.question("There are two doors through which you can pass. Choose the capitalized letter (H, J) of the room you'd like to travel to next.", function(go) {
+	rl.question("There are two doors through which you can pass. Choose the capitalized letter (H, J) of the room you'd like to travel to next. J looks like a good option.", function(go) {
 
 		if (go==="H") {
     		roomH();
@@ -132,7 +138,7 @@ var roomI = function(){
 
 var roomJ = function(){
 	console.log("You are now in Room J. You're almost there.");
-	rl.question("There are two doors through which you can pass. Choose the capitalized letter (I, K) of the room you'd like to travel to next.", function(go) {
+	rl.question("Don't over-complicate this. Pick 'K' and claim your prize.", function(go) {
 
 		if (go==="I") {
     		roomI();
