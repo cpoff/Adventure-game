@@ -1,0 +1,83 @@
+{
+  "rooms": [
+    {
+      "name": "A",
+      "north": "D",
+      "east": "B",
+      "south": null,
+      "west": null
+    },
+    {
+      "name": "B",
+      "north": "E",
+      "east": "C",
+      "south": null,
+      "west": "A",
+      "entrance": "south"
+    },
+    {
+      "name": "C",
+      "north": null,
+      "east": null,
+      "south": null,
+      "west": "B"
+    },
+    {
+      "name": "D",
+      "north": "G",
+      "east": null,
+      "south": "A",
+      "west": null
+    },
+    {
+      "name": "E",
+      "north": null,
+      "east": "F",
+      "south": "B",
+      "west": null
+    },
+    {
+      "name": "F",
+      "north": null,
+      "east": null,
+      "south": null,
+      "west": "E"
+    },
+    {
+      "name": "G",
+      "north": "H",
+      "east": null,
+      "south": "D",
+      "west": null
+    },
+    {
+      "name": "H",
+      "north": null,
+      "east": "I",
+      "south": "G",
+      "west": null
+    },
+    {
+      "name": "I",
+      "north": null,
+      "east": "J",
+      "south": null,
+      "west": "H"
+    },
+    {
+      "name": "J",
+      "north": null,
+      "east": "K",
+      "south": null,
+      "west": "I"
+    },
+    {
+      "name": "K",
+      "north": null,
+      "east": null,
+      "south": null,
+      "west": "J",
+      "treasure": true
+    }
+  ]
+}
