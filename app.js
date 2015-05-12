@@ -1,4 +1,5 @@
 
+ // Termican command: node app.js ./map.json
 console.log(require('jsi-gamelib').map(require(process.argv[2])));
 var readline = require('readline');
 var rl = readline.createInterface({
@@ -14,6 +15,8 @@ var roomA = function(){
     		roomD();
 		} else if (go==="B"){
 			roomB();
+		} else if (go==="anxiety"){
+			roomK();		
 		} else {
 			rl.close();
 			 }
@@ -30,6 +33,8 @@ var roomB = function(){
 			roomE();
 		} else if (go==="C"){
 			roomC();
+		} else if (go==="anxiety"){
+			roomK();		
 		} else {
 			rl.close();
 			 }
@@ -44,6 +49,8 @@ var roomD = function(){
     		roomA();
 		} else if (go==="G"){
 			roomG();
+		} else if (go==="anxiety"){
+			roomK();		
 		} else {
 			rl.close();
 			 }
@@ -56,6 +63,8 @@ var roomC = function(){
 
 		if (go==="B") {
     		roomB();
+		} else if (go==="anxiety"){
+			roomK();		
 		} else {
 			rl.close();
 			 }
@@ -68,6 +77,8 @@ var roomF = function(){
 
 		if (go==="E") {
     		roomE();
+		} else if (go==="anxiety"){
+			roomK();		
 		} else {
 			rl.close();
 			 }
@@ -82,6 +93,8 @@ var roomE = function(){
     		roomF();
 		} else if (go==="B"){
 			roomB();
+		} else if (go==="anxiety"){
+			roomK();		
 		} else {
 			rl.close();
 			 }
@@ -96,6 +109,8 @@ var roomG = function(){
     		roomH();
 		} else if (go==="D"){
 			roomD();
+		} else if (go==="anxiety"){
+			roomK();		
 		} else {
 			rl.close();
 			 }
@@ -110,6 +125,8 @@ var roomH = function(){
     		roomG();
 		} else if (go==="I"){
 			roomI();
+		} else if (go==="anxiety"){
+			roomK();		
 		} else {
 			rl.close();
 			 }
@@ -124,6 +141,8 @@ var roomI = function(){
     		roomH();
 		} else if (go==="J"){
 			roomJ();
+		} else if (go==="anxiety"){
+			roomK();		
 		} else {
 			rl.close();
 			 }
