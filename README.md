@@ -1,5 +1,6 @@
 # Game Library
 
+Original
 Game library for JavaScript course.
 
 > This repository is for learning purposes. It may intentionally contain bugs or
